@@ -1,8 +1,16 @@
-# DJSetAudio: batch audio extraction from a TXT URL list
+# DJSetAudio
 
 English | [简体中文](README.zh-CN.md)
 
-Put URLs for media you are authorized to download in `urls.txt`, one per line, then run the tool. Extracted audio is stored under `audio/`. The default configuration processes three URLs concurrently and displays one live progress line per active task.
+**Batch-download and extract audio from a TXT list of media URLs.**
+
+Put authorized video or audio URLs in `urls.txt`, run one command, and receive ready-to-use audio files in `audio/`.
+
+`urls.txt` → concurrent downloads → FFmpeg audio extraction → MP3, M4A, FLAC, or source-quality audio
+
+- Runs locally on macOS and Windows.
+- Downloads three URLs concurrently by default with fixed-line live progress.
+- Remembers completed items, resumes supported transfers, and writes retry reports for failures.
 
 DJSetAudio runs locally with **yt-dlp + FFmpeg**. It extracts the complete audio track; it does not identify songs, split a DJ set into tracks, separate stems, bypass DRM, or bypass payment and access controls. Platform support can change over time.
 

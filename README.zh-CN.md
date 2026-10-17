@@ -1,14 +1,22 @@
-# DJSetAudio：用 TXT 清单批量提取 DJ Set 音轨
+# DJSetAudio
 
 [English](README.en.md) | 简体中文
 
-把你有权下载的演出或音频链接放进 `urls.txt`，每行一个，然后运行。音频保存在项目内 `audio/`。默认同时处理 3 条链接。支持 Windows 和 macOS；主流程使用 **yt-dlp + FFmpeg**，DJ Tools 原教程另附说明。
+**把一批视频或音频链接放进 TXT，一次运行，批量下载并提取音轨。**
 
-这是本地 Work 项目，不需要上传链接清单到解析网站。它提取整段音轨，不识别曲目、不拆分人声或鼓点，也不保证所有平台链接均可解析。只处理你有权下载的内容，不提供绕过 DRM、付费或访问权限的功能。
+将有权下载的链接逐行写入 `urls.txt`，运行一个命令，即可在 `audio/` 中获得可直接使用的音频文件。
+
+`urls.txt` → 并发下载 → FFmpeg 提取音轨 → MP3、M4A、FLAC 或来源音质
+
+- 支持 macOS 和 Windows，全部在本机运行。
+- 默认同时下载 3 条链接，每个任务使用固定行动态显示进度。
+- 自动记录已完成项目，支持来源允许的断点续传，并生成失败重试清单。
+
+主流程使用 **yt-dlp + FFmpeg**，不需要把链接清单上传到解析网站。它提取整段音轨，不识别曲目、不拆分人声或鼓点，也不保证所有平台链接均可解析。只处理你有权下载的内容，不提供绕过 DRM、付费或访问权限的功能。
 
 ## 1. 第一次安装
 
-先把整个项目文件夹解压/保存到固定位置。当前 Mac 目标目录为 `/Users/tianchengliu/Projects/DJSetAudio`。下面的安装命令会访问软件源；安装脚本只创建项目的 `.venv`，不会安装 DJ Tools 或修改系统 Python。
+先把整个项目文件夹解压或保存到固定位置。下面的安装命令会访问软件源；安装脚本只创建项目的 `.venv`，不会安装 DJ Tools 或修改系统 Python。
 
 ### macOS
 
@@ -16,7 +24,7 @@
 
 ```bash
 brew install python ffmpeg deno
-cd "/Users/tianchengliu/Projects/DJSetAudio"
+cd "/你的路径/DJSetAudio"
 bash scripts/setup-macos.sh
 bash run.sh --doctor
 ```
@@ -128,7 +136,7 @@ Windows PowerShell：
 例如 Mac 使用另一份 TXT，全部转 MP3：
 
 ```bash
-bash run.sh --batch "/Users/tianchengliu/Documents/我的DJ链接.txt" --format mp3
+bash run.sh --batch "/你的路径/我的DJ链接.txt" --format mp3
 ```
 
 Windows 示例：
