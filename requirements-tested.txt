@@ -1,0 +1,13 @@
+# 2026-10-17 macOS x86_64 / Python 3.13.7 的验证环境快照
+# 仅作复现参考；日常使用 setup 更新，以适应平台变化。
+brotli==1.2.0
+certifi==2026.7.22
+charset-normalizer==3.5.2
+idna==3.20
+mutagen==1.48.1
+pycryptodomex==3.24.1
+requests==2.34.2
+urllib3==2.8.0
+websockets==17.2
+yt-dlp==2026.10.10.233141.dev0
+yt-dlp-ejs==0.8.0

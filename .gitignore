@@ -1,0 +1,10 @@
+.venv/
+.venv-djtools/
+__pycache__/
+*.pyc
+audio/*
+!audio/.gitkeep
+dist/
+installed-versions.txt
+*.log
+.DS_Store

@@ -1,0 +1,2 @@
+# 使用 setup 脚本安装/更新；--pre 选择官方建议的 nightly 通道。
+yt-dlp[default]
